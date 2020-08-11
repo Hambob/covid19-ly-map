@@ -3,14 +3,14 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-const Chart = () => {
+const Chart = ({data: {TotalConfirmed, TotalRecovered, TotalDeaths}, country}) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchTheAPI = async () => {
       setDailyData(await fetchDailyData());
     };
     fetchTheAPI();
-  });
+  }, []);
 
   const lineChart =
     dailyData !== undefined ? (
@@ -42,7 +42,34 @@ const Chart = () => {
     ) : (
       <div> Error</div>
     );
-  return <div className={styles.container}>{lineChart}</div>;
+
+    const barChart = (
+      TotalConfirmed ? (
+        <Bar 
+          data={{
+            labels: ['المصابين', 'المتعافين', 'الوفيات'],
+            datasets: [{
+              label: 'الأشخاص',
+              backgroundColor: [
+              '#e74c3c',
+              '#2ecc71',
+              '#34495e'
+            ],
+            data: [TotalConfirmed, TotalRecovered, TotalDeaths]
+            }]
+          }}
+          options={{
+            legend: {display: false},
+            title: {display: true, text: `الحالة الحالية في ${country}`}
+          }}
+        />
+      ) : null
+    )
+  return (
+  <div className={styles.container}>
+   {!country ? lineChart : barChart}
+  </div>
+  )
 };
 
 export default Chart;

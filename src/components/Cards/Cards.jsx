@@ -28,9 +28,7 @@ const Cards = ({
           className={cx(styles.card, styles.totalConfirmed)}
         >
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              الإصابات
-            </Typography>
+          <h1>الإصابات</h1>
             <Typography variant="h5">
               <CountUp
                 start={0}
@@ -53,9 +51,7 @@ const Cards = ({
           className={cx(styles.card, styles.totalRecovered)}
         >
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              المتعافين
-            </Typography>
+              <h1>المتعافين</h1>
             <Typography variant="h5">
               <CountUp
                 start={0}
@@ -80,9 +76,7 @@ const Cards = ({
           className={cx(styles.card, styles.totalDeaths)}
         >
           <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              المتوفين
-            </Typography>
+            <h1>الوفيات</h1>
             <Typography variant="h5">
               <CountUp
                 start={0}

@@ -4,8 +4,12 @@
 }
 .card {
   margin: 0 2% !important;
+  background-color: #e2e1e1 !important;
 }
-
+.card h1 {
+  font-size: 20px;
+  margin: 0;
+}
 .totalConfirmed {
   border-bottom: 10px solid #e74c3c !important;
 }

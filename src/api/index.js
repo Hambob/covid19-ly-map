@@ -29,14 +29,13 @@ export const fetchCountries = async (country) => {
   try {
     const dataOneCountry = await axios.get(url)
     const oneData = dataOneCountry.data.Countries.filter((c) => c.Slug === country ? country : false)
-    console.log(oneData)
+    console.log(oneData[0].TotalConfirmed)
     return {
-      TotalConfirmed: oneData.TotalConfirmed,
-      TotalDeaths: oneData.TotalDeaths,
-      TotalRecovered: oneData.TotalRecovered,
-      Date: oneData.Date
+      TotalConfirmed: oneData[0].TotalConfirmed,
+      TotalDeaths: oneData[0].TotalDeaths,
+      TotalRecovered: oneData[0].TotalRecovered,
+      Date: oneData[0].Date
     }
-
   } catch(error) {
     throw error
   }
