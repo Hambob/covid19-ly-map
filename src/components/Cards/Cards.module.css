@@ -1,0 +1,19 @@
+.container {
+  width: 50%;
+  margin: 50px 0;
+}
+.card {
+  margin: 0 2% !important;
+}
+
+.totalConfirmed {
+  border-bottom: 10px solid #e74c3c !important;
+}
+
+.totalRecovered {
+  border-bottom: 10px solid #2ecc71 !important;
+}
+
+.totalDeaths {
+  border-bottom: 10px solid #34495e !important;
+}
